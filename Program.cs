@@ -22,6 +22,7 @@ class Program
             Console.WriteLine(data);
             //split file into words using whitespace as delimiter
             string[] words = data.Split((char[])null, StringSplitOptions.RemoveEmptyEntries);
+            words.ToString().Trim('\r', '\n');
 
 
             //write to file

@@ -9,7 +9,7 @@ class Program
         Console.WriteLine("Has lexicon been created? (y/n)");
         string MakeFile = Console.ReadLine().ToLower();
 
-        Console.WriteLine("Please enter the filepath to your lexicon, or where you want it if it has not been created yet");
+        Console.WriteLine("Please enter the filepath to your lexicon, or where you want it if it has not been created yet NOTE THIS MUST BE A CSV");
         string lexiconFilePath = Console.ReadLine().Trim().Trim('"');
 
 
@@ -17,7 +17,7 @@ class Program
         {
             //read all from file and print  for error checking purposes
             Console.WriteLine("Please enter the filepath to your data");
-            string data = Console.ReadLine().Trim().Trim('"');
+            string data = File.ReadAllText(Console.ReadLine().Trim().Trim('"'));
 
             Console.WriteLine(data);
             //split file into words using whitespace as delimiter

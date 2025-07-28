@@ -10,3 +10,8 @@ Please enter the filepath to your lexicon, or where you want it if it has not be
 "C:\Users\[you]\Downloads\lexicon.csv" (the program will create this file if necessary)\
 Please enter the filepath to your data\
 "C:\Users\[you]\Downloads\Markov Data.txt" (this file must already exist, the program does not create it)\
+# Help! It isn't working!
+Common errors you may encounter
+* The lexicon file is not a CSV. This will completely break the program, and when you specify the filepath for the lexicon you should ensure it is a csv
+* The text you have entered as a seed never appears in the original document. If you struggle to find a place to begin text generation, either use the first two words, or open the CSV and pick two random words from the first column
+* Either the data (if you are trying to create the lexicon) or the lexicon itself is open in another app, eg notepad, notepad ++, excel. Check both of these files are only being used by the program or it may fail to read data from them, resulting in a crash

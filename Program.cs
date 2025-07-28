@@ -6,7 +6,7 @@ class Program
 {
     static void Main()
     {
-        Console.WriteLine("Has lexicon been created? (y/n)");
+        Console.WriteLine("Has lexicon been created? (Y/n)");
         string MakeFile = Console.ReadLine().ToLower();
 
         Console.WriteLine("Please enter the filepath to your lexicon, or where you want it if it has not been created yet NOTE THIS MUST BE A CSV");

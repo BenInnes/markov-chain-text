@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Runtime.CompilerServices;
+using System.Text.RegularExpressions;
 
 class Program
 {
@@ -17,7 +18,9 @@ class Program
         {
             //read all from file and print  for error checking purposes
             Console.WriteLine("Please enter the filepath to your data");
-            string data = File.ReadAllText(Console.ReadLine().Trim().Trim('"'));
+            string data = File.ReadAllText(Console.ReadLine().Trim().Trim('"')); //remove trailing white space
+            data = data.Replace(",", ""); //remove all commas (they mess up the CSV
+            data = Regex.Replace(data, @"\s+", " "); //replace multiple spaces with one
 
             Console.WriteLine(data);
             //split file into words using whitespace as delimiter
@@ -29,9 +32,12 @@ class Program
             using (StreamWriter writer = new StreamWriter(lexiconFilePath, false)) //false means if file is already present, overwrite it
             {
                 for (int i = 0; i <= words.Length - 3; i++)
-                {
-                    string line = $"{words[i]} {words[i + 1]}";
-                    writer.WriteLine($"{line},{words[i + 2]}");
+                {   
+                    string line = $"{words[i]} {words[i + 1]}".Trim();
+                    Console.WriteLine(line);
+                    string temp = words[i + 2].Trim();
+                    Console.WriteLine(temp);
+                    writer.WriteLine($"{line},{temp}");
                     Console.WriteLine(line + "," + words[i + 2] + " written successfully");
                 }
                 Console.WriteLine("File writing complete");
